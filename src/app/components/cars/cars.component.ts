@@ -11,12 +11,26 @@ import { Car } from '../../shared/model/car-model';
 export class CarsComponent implements OnInit {
 	
 	private cars: any = [];
-
-	constructor() {
-		
+	private newCar: Car = new Car();
+	
+	constructor(private carsService: CarsService) {
+		carsService.getCars().subscribe(data => {
+			this.cars = data;
+		},
+		(err: HttpErrorResponse) => {
+			alert(`Backend returned code ${err.status} with message: ${err.error}`);
+		});
 	}
 
-
+	addCar(newCar: Car) {
+    this.carsService.addCar( newCar ).
+    subscribe(
+      car => {
+       this.cars.push(car);
+       this.newCar = new Car();
+      }
+     );
+  }
 
 
   ngOnInit() {

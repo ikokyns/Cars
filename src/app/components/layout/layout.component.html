@@ -4,10 +4,10 @@
       <nav>
         <ul class="nav nav-pills float-right">
           <li class="nav-item">
-            <a class="nav-link" href="#">Cars</a>           
+            <a class="nav-link" routerLink="/cars" routerLinkActive="active">Cars</a>           
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add Car</a>            
+            <a class="nav-link" routerLink="/add" routerLinkActive="active">Add Car</a>            
           </li>
         </ul>
       </nav>
@@ -15,43 +15,7 @@
     </div>
     <br>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Mark</th>
-      <th>Model</th>
-      <th>Year</th>
-      <th>Max Speed</th>
-      <th>Is it Automatic</th>
-      <th>Engine</th>
-      <th>Number of doors</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of cars">
-      <td class="align-middle">
-        {{ car.mark }}
-      </td>
-      <td class="align-middle">
-        {{ car.model }}
-      </td>
-      <td class="align-middle">
-        {{ car.year }}
-      </td>
-      <td class="align-middle">
-        {{ car.maxSpeed }}
-      </td>
-      <td class="align-middle">
-        {{ car.isAutomatic }}
-      </td>
-      <td class="align-middle">
-        {{ car.engine }}
-      </td>
-      <td class="align-middle">
-        {{ car.numberOfDoors }}
-      </td>
-    </tr>
-</table>
+<router-outlet></router-outlet>
 
   </div>
 </body>

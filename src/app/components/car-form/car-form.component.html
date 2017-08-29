@@ -1,0 +1,26 @@
+<h1>Add new car</h1>
+
+<form #carForm="ngForm" (ngSubmit)="addCar(newCar); carForm.reset()">
+	<div class="form-group">
+		<label>Mark</label>
+		<input name="mark" required #mark="ngModel" [(ngModel)]="newCar.mark" type="text" class="form-control">
+	</div>
+
+	<div class="form-group">
+		<label>Model</label>
+	    <input name="model" required #model="ngModel" [(ngModel)]="newCar.model" type="text" class="form-control">
+	</div>
+
+	<div class="form-group">
+		<label>Year</label>
+		<select name="year" required #year="ngModel" [(ngModel)]="newCar.year" class="form-control">
+			<option *ngFor="let year of selectYears">{{ year.i }}</option>
+		</select>	
+	</div>
+
+	<div class="form-group">
+		<label>Max Speed</label>
+	    <input name="maxSpeed" required #maxSpeed="ngModel" [(ngModel)]="newCar.maxSpeed" type="text" class="form-control">
+	</div>
+
+</form>
